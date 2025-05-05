@@ -1,7 +1,17 @@
+"""
+Author: Jenni Williams
+Date: May 5th, 2025
+Assignment: Final Project
+Description: This program allows users to select clothing items (shirts, pants, socks) with various options and submit their order.
+ It includes a GUI with images and handles user input.
+"""
+# Import necessary libraries
+import os
 import tkinter as tk
 from tkinter import messagebox
 
-# Clothing options
+# Clothing options, including types, colors, and sizes
+# These lists can be expanded or modified as needed
 clothing_types = ["Shirt", "Pants", "Socks"]
 colors = ["Red", "Blue", "Green", "Black", "White", "Yellow"]
 sizes = ["XS", "S", "M", "L", "XL", "XXL"]
@@ -87,7 +97,7 @@ tk.Label(window, text="Enter your name:", bg="black", fg="red").pack()
 name_entry = tk.Entry(window)
 name_entry.pack()
 
-# Shirt options
+# Shirt options, including size color and quantity
 tk.Label(window, text="Choose your shirt:", bg="black", fg="red").pack()
 shirt_type = tk.StringVar(value="Shirt")
 shirt_color = tk.StringVar(value=colors[0])
@@ -101,7 +111,7 @@ tk.OptionMenu(window, shirt_size, *sizes).pack()
 tk.Label(window, text="Quantity:", bg="black", fg="red").pack()
 tk.Spinbox(window, from_=1, to=10, textvariable=shirt_quantity).pack()
 
-# Pants options
+# Pants options, including size color and quantity
 tk.Label(window, text="Choose your pants:", bg="black", fg="red").pack()
 pants_type = tk.StringVar(value="Pants")
 pants_color = tk.StringVar(value=colors[0])
@@ -115,7 +125,7 @@ tk.OptionMenu(window, pants_size, *sizes).pack()
 tk.Label(window, text="Quantity:", bg="black", fg="red").pack()
 tk.Spinbox(window, from_=1, to=10, textvariable=pants_quantity).pack()
 
-# Socks options
+# Socks options, including color and quantity
 tk.Label(window, text="Choose your socks:", bg="black", fg="red").pack()
 socks_type = tk.StringVar(value="Socks")
 socks_color = tk.StringVar(value=colors[0])
@@ -126,7 +136,7 @@ tk.OptionMenu(window, socks_color, *colors).pack()
 tk.Label(window, text="Quantity:", bg="black", fg="red").pack()
 tk.Spinbox(window, from_=1, to=10, textvariable=socks_quantity).pack()
 
-# Buttons
+# Buttons, including submit, clear, and exit
 tk.Button(window, text="Submit", command=open_details_window, bg="gray", fg="red").pack(pady=10)
 tk.Button(window, text="Clear", command=clear_input, bg="gray", fg="red").pack()
 tk.Button(window, text="Exit", command=exit_app, bg="gray", fg="red").pack(pady=5)
