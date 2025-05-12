@@ -25,12 +25,12 @@ def open_details_window():
     details_window = tk.Toplevel()
     details_window.title("Your Clothing Selection")
     details_window.geometry("500x700")
-    details_window.configure(bg="black")
+    details_window.configure(bg="grey")
 
     # Image 1 (sports.png)
     try:
         img1 = tk.PhotoImage(file="sports.png")  # MUST be PNG or GIF
-        img_label1 = tk.Label(details_window, image=img1, bg="black")
+        img_label1 = tk.Label(details_window, image=img1, bg="grey")
         img_label1.image = img1  # Required to keep image
         img_label1.pack()
         tk.Label(details_window, text="Image: Sports Icon", bg="black", fg="red").pack()
@@ -50,7 +50,7 @@ def open_details_window():
     tk.Label(details_window, text=f"Hello, {name}!", font=("Arial", 14), bg="black", fg="red").pack(pady=10)
 
     order_summary = [
-        f"{shirt_quantity.get()} {shirt_color.get()} {shirt_type.get()}(s), Size {shirt_size.get()}",
+        f"{shirt_quantity.get()} {shirt_color.get()} Shirt(s), Size {shirt_size.get()}",
         f"{pants_quantity.get()} {pants_color.get()} {pants_type.get()}(s), Size {pants_size.get()}",
         f"{socks_quantity.get()} {socks_color.get()} {socks_type.get()}(s)"
     ]
@@ -68,7 +68,6 @@ def open_details_window():
 def clear_input():
     name_entry.delete(0, tk.END)
     result_label.config(text="")
-    shirt_type.set(clothing_types[0])
     shirt_color.set(colors[0])
     shirt_size.set(sizes[0])
     shirt_quantity.set(1)
@@ -90,7 +89,7 @@ def exit_app():
 window = tk.Tk()
 window.title("Sports and More!")
 window.geometry("450x700")
-window.configure(bg="black")
+window.configure(bg="grey")
 
 tk.Label(window, text="Welcome to Sports and More!", font=("Arial", 14), bg="black", fg="red").pack(pady=10)
 tk.Label(window, text="Enter your name:", bg="black", fg="red").pack()
@@ -99,12 +98,11 @@ name_entry.pack()
 
 # Shirt options, including size color and quantity
 tk.Label(window, text="Choose your shirt:", bg="black", fg="red").pack()
-shirt_type = tk.StringVar(value="Shirt")
 shirt_color = tk.StringVar(value=colors[0])
 shirt_size = tk.StringVar(value=sizes[0])
 shirt_quantity = tk.IntVar(value=1)
 
-tk.OptionMenu(window, shirt_type, *clothing_types).pack()
+tk.Label(window, text="Item: Shirt", bg="grey", fg="black").pack()
 tk.OptionMenu(window, shirt_color, *colors).pack()
 tk.Label(window, text="Shirt Size:", bg="black", fg="red").pack()
 tk.OptionMenu(window, shirt_size, *sizes).pack()
@@ -137,9 +135,9 @@ tk.Label(window, text="Quantity:", bg="black", fg="red").pack()
 tk.Spinbox(window, from_=1, to=10, textvariable=socks_quantity).pack()
 
 # Buttons, including submit, clear, and exit
-tk.Button(window, text="Submit", command=open_details_window, bg="gray", fg="red").pack(pady=10)
-tk.Button(window, text="Clear", command=clear_input, bg="gray", fg="red").pack()
-tk.Button(window, text="Exit", command=exit_app, bg="gray", fg="red").pack(pady=5)
+tk.Button(window, text="Submit", command=open_details_window, bg="black", fg="red").pack(pady=10)
+tk.Button(window, text="Clear", command=clear_input, bg="black", fg="red").pack()
+tk.Button(window, text="Exit", command=exit_app, bg="black", fg="red").pack(pady=5)
 
 result_label = tk.Label(window, text="", fg="green", bg="black")
 result_label.pack()
