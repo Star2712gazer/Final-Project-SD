@@ -50,10 +50,10 @@ def open_details_window():
     tk.Label(details_window, text=f"Hello, {name}!", font=("Arial", 14), bg="black", fg="red").pack(pady=10)
 
     order_summary = [
-        f"{shirt_quantity.get()} {shirt_color.get()} Shirt(s), Size {shirt_size.get()}",
-        f"{pants_quantity.get()} {pants_color.get()} {pants_type.get()}(s), Size {pants_size.get()}",
-        f"{socks_quantity.get()} {socks_color.get()} {socks_type.get()}(s)"
-    ]
+    f"{shirt_quantity.get()} {shirt_color.get()} Shirt(s), Size {shirt_size.get()}",
+    f"{pants_quantity.get()} {pants_color.get()} Pants(s), Size {pants_size.get()}",
+    f"{socks_quantity.get()} {socks_color.get()} Socks(s)"
+]
 
     for item in order_summary:
         tk.Label(details_window, text=item, bg="black", fg="red").pack()
@@ -116,7 +116,7 @@ pants_color = tk.StringVar(value=colors[0])
 pants_size = tk.StringVar(value=sizes[0])
 pants_quantity = tk.IntVar(value=1)
 
-tk.OptionMenu(window, pants_type, *clothing_types).pack()
+tk.Label(window, text="Item: Pants", bg="grey", fg="black").pack()
 tk.OptionMenu(window, pants_color, *colors).pack()
 tk.Label(window, text="Pants Size:", bg="black", fg="red").pack()
 tk.OptionMenu(window, pants_size, *sizes).pack()
@@ -129,7 +129,7 @@ socks_type = tk.StringVar(value="Socks")
 socks_color = tk.StringVar(value=colors[0])
 socks_quantity = tk.IntVar(value=1)
 
-tk.OptionMenu(window, socks_type, *clothing_types).pack()
+tk.Label(window, text="Item: Socks", bg="grey", fg="black").pack()
 tk.OptionMenu(window, socks_color, *colors).pack()
 tk.Label(window, text="Quantity:", bg="black", fg="red").pack()
 tk.Spinbox(window, from_=1, to=10, textvariable=socks_quantity).pack()
